@@ -85,27 +85,27 @@ export default function ServiciosPage() {
             return (
               <article
                 key={title as string}
-                className="group rounded-[1.75rem] border border-slate-200 p-7 transition hover:border-blue-200 hover:shadow-xl hover:shadow-blue-950/5"
+                className="group border-line hover:border-accent/40 rounded-[1.75rem] border p-7 transition hover:shadow-xl hover:shadow-blue-950/5"
               >
                 <div className="flex items-start justify-between">
-                  <div className="flex size-12 items-center justify-center rounded-xl bg-slate-950 text-white group-hover:bg-blue-600">
+                  <div className="bg-accent-soft text-accent group-hover:bg-accent-soft flex size-12 items-center justify-center rounded-xl">
                     <ItemIcon />
                   </div>
-                  <span className="text-xs font-bold text-slate-300">
+                  <span className="text-muted text-xs font-bold">
                     0{index + 1}
                   </span>
                 </div>
                 <h2 className="mt-10 text-2xl font-semibold tracking-tight">
                   {title as string}
                 </h2>
-                <p className="mt-3 leading-7 text-slate-600">
+                <p className="text-muted mt-3 leading-7">
                   {description as string}
                 </p>
                 <div className="mt-7 grid gap-2 sm:grid-cols-3">
                   {(benefits as string[]).map((benefit) => (
                     <p
                       key={benefit}
-                      className="flex items-center gap-2 text-xs font-semibold text-blue-600"
+                      className="text-accent flex items-center gap-2 text-xs font-semibold"
                     >
                       <Check size={13} /> {benefit}
                     </p>

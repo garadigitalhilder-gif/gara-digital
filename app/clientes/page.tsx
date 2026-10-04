@@ -63,18 +63,18 @@ export default function ClientesPage() {
         description="Trabajamos con equipos que valoran las ideas, la claridad y una ejecución que siempre apunta a resultados."
       />
       <section className="py-20">
-        <div className="container-site grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="container-site border-line bg-line grid grid-cols-2 gap-px overflow-hidden rounded-2xl border sm:grid-cols-3 lg:grid-cols-5">
           {clients.map((client) => (
             <div
               key={client}
-              className="flex h-32 items-center justify-center bg-white p-5 text-center text-sm font-black tracking-[0.12em] text-slate-300"
+              className="bg-surface text-muted flex h-32 items-center justify-center p-5 text-center text-sm font-black tracking-[0.12em]"
             >
               {client}
             </div>
           ))}
         </div>
       </section>
-      <section className="bg-slate-50 py-24">
+      <section className="bg-surface py-24">
         <div className="container-site">
           <h2 className="max-w-3xl text-4xl font-semibold tracking-[-0.045em] sm:text-5xl">
             Lo que dicen quienes ya trabajan con nosotros.
@@ -83,22 +83,22 @@ export default function ClientesPage() {
             {testimonials.map(([quote, name, role]) => (
               <figure
                 key={name}
-                className="flex min-h-64 flex-col rounded-2xl border border-slate-200 bg-white p-6"
+                className="border-line bg-surface flex min-h-64 flex-col rounded-2xl border p-6"
               >
                 <div className="flex justify-between">
-                  <Quote className="text-blue-600" />
-                  <div className="flex text-amber-400">
+                  <Quote className="text-accent" />
+                  <div className="text-accent flex">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <Star key={star} size={12} fill="currentColor" />
                     ))}
                   </div>
                 </div>
-                <blockquote className="mt-8 text-sm leading-6 text-slate-700">
+                <blockquote className="text-foreground mt-8 text-sm leading-6">
                   “{quote}”
                 </blockquote>
                 <figcaption className="mt-auto pt-7">
                   <p className="text-sm font-bold">{name}</p>
-                  <p className="mt-1 text-xs text-slate-500">{role}</p>
+                  <p className="text-muted mt-1 text-xs">{role}</p>
                 </figcaption>
               </figure>
             ))}

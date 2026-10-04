@@ -7,7 +7,7 @@ export function WhatsappButton() {
       target="_blank"
       rel="noreferrer"
       aria-label="Escribir a Gara Digital por WhatsApp"
-      className="fixed right-5 bottom-5 z-50 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl shadow-emerald-900/20 transition hover:-translate-y-1 hover:scale-105"
+      className="button-primary fixed right-5 bottom-5 z-50 flex size-14 items-center justify-center rounded-full text-white shadow-xl transition hover:-translate-y-1 hover:scale-105"
     >
       <FaWhatsapp size={27} />
     </a>

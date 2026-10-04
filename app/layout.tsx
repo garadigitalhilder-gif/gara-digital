@@ -27,8 +27,11 @@ const organizationSchema = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0F172A",
-  colorScheme: "light",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#080b20" },
+  ],
+  colorScheme: "light dark",
 };
 
 export const metadata: Metadata = {
@@ -85,7 +88,14 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t;try{t=localStorage.getItem('gara-theme')}catch(e){}if(t!=='light'&&t!=='dark')t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;window.addEventListener('storage',function(e){if(e.key==='gara-theme'){document.documentElement.dataset.theme=e.newValue==='dark'?'dark':'light';window.dispatchEvent(new Event('gara-theme'))}})})()`,
+          }}
+        />
+      </head>
       <body className={`${inter.variable} antialiased`}>
         <SiteHeader />
         {children}

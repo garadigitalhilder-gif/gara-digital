@@ -19,13 +19,13 @@ export default function ContactoPage() {
         description="Cuéntanos qué quieres lograr. Nosotros te ayudamos a convertirlo en una estrategia clara, creativa y accionable."
         cta="Escríbenos"
       />
-      <section className="bg-slate-50 py-24 sm:py-32">
+      <section className="bg-surface py-24 sm:py-32">
         <div className="container-site grid items-start gap-14 lg:grid-cols-[0.75fr_1.25fr]">
           <div>
             <h2 className="text-4xl font-semibold tracking-[-0.045em]">
               Hablemos de tu proyecto.
             </h2>
-            <p className="mt-5 leading-7 text-slate-600">
+            <p className="text-muted mt-5 leading-7">
               Responderemos en menos de 24 horas laborables para conocer tus
               objetivos y definir el siguiente paso.
             </p>
@@ -40,9 +40,9 @@ export default function ContactoPage() {
                   <a
                     key={text as string}
                     href={href as string}
-                    className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 text-sm font-semibold text-slate-700"
+                    className="border-line bg-surface text-foreground flex items-center gap-4 rounded-2xl border p-4 text-sm font-semibold"
                   >
-                    <span className="flex size-11 items-center justify-center rounded-full bg-blue-50 text-blue-600">
+                    <span className="bg-accent-soft text-accent flex size-11 items-center justify-center rounded-full">
                       <ItemIcon size={17} />
                     </span>
                     {text as string}

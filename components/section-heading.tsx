@@ -22,7 +22,7 @@ export function SectionHeading({
       <div
         className={cn(
           "mb-5 inline-flex items-center gap-2 text-xs font-bold tracking-[0.18em] uppercase",
-          inverse ? "text-cyan-300" : "text-blue-600",
+          inverse ? "text-accent" : "text-accent",
         )}
       >
         <span className="h-px w-8 bg-current" />
@@ -31,7 +31,7 @@ export function SectionHeading({
       <h2
         className={cn(
           "text-4xl leading-[1.08] font-semibold tracking-[-0.045em] text-balance sm:text-5xl lg:text-6xl",
-          inverse ? "text-white" : "text-slate-950",
+          inverse ? "text-foreground" : "text-foreground",
         )}
       >
         {title}
@@ -41,7 +41,7 @@ export function SectionHeading({
           className={cn(
             "mt-5 max-w-2xl text-base leading-7 sm:text-lg",
             align === "center" && "mx-auto",
-            inverse ? "text-slate-300" : "text-slate-600",
+            inverse ? "text-muted" : "text-muted",
           )}
         >
           {description}

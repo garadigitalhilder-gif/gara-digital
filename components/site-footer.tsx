@@ -25,12 +25,12 @@ const columns = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/10 bg-slate-950 py-12 text-white">
+    <footer className="border-line bg-surface text-foreground border-t py-12">
       <div className="container-site">
-        <div className="grid gap-10 border-b border-white/10 pb-10 md:grid-cols-4">
+        <div className="border-line grid gap-10 border-b pb-10 md:grid-cols-4">
           <div>
             <Logo inverse />
-            <p className="mt-5 max-w-xs text-sm leading-6 text-slate-400">
+            <p className="text-muted mt-5 max-w-xs text-sm leading-6">
               Transformamos ideas en resultados con estrategia, creatividad y
               tecnología.
             </p>
@@ -40,7 +40,7 @@ export function SiteFooter() {
                   key={index}
                   href={index === 2 ? "https://wa.me/50764103972" : "#"}
                   aria-label={["Instagram", "Facebook", "WhatsApp"][index]}
-                  className="flex size-9 items-center justify-center rounded-full border border-white/10 text-slate-300 transition hover:border-cyan-300 hover:text-cyan-300"
+                  className="border-line text-muted hover:border-accent hover:text-accent flex size-9 items-center justify-center rounded-full border transition"
                 >
                   <Icon size={15} />
                 </a>
@@ -57,7 +57,7 @@ export function SiteFooter() {
                   <Link
                     key={label}
                     href={href}
-                    className="block text-sm text-slate-400 transition hover:text-white"
+                    className="text-muted hover:text-foreground block text-sm transition"
                   >
                     {label}
                   </Link>
@@ -69,26 +69,29 @@ export function SiteFooter() {
             <p className="text-xs font-bold tracking-[0.16em] uppercase">
               Contacto
             </p>
-            <div className="mt-5 space-y-3 text-sm text-slate-400">
+            <div className="text-muted mt-5 space-y-3 text-sm">
               <a
                 href="mailto:garadigital@gmail.com"
-                className="block hover:text-white"
+                className="hover:text-foreground block"
               >
                 garadigital@gmail.com
               </a>
-              <a href="tel:+50764103972" className="block hover:text-white">
+              <a
+                href="tel:+50764103972"
+                className="hover:text-foreground block"
+              >
                 +507 6410-3972
               </a>
               <p>Ciudad de Panamá</p>
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-between gap-3 pt-7 text-xs text-slate-500 sm:flex-row">
+        <div className="text-muted flex flex-col justify-between gap-3 pt-7 text-xs sm:flex-row">
+          <p>Transformamos ideas en resultados.</p>
           <p>
             © {new Date().getFullYear()} Gara Digital. Todos los derechos
             reservados.
           </p>
-          <p>Transformamos ideas en resultados.</p>
         </div>
       </div>
     </footer>

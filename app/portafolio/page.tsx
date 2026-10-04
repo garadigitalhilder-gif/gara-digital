@@ -15,14 +15,14 @@ const projects = [
     "Mega Ensambles",
     "Estrategia digital · B2B",
     "+74% solicitudes calificadas",
-    "from-blue-700 to-cyan-500",
+    "from-indigo-800 to-violet-500",
     "Una nueva narrativa comercial para convertir conocimiento técnico en oportunidades.",
   ],
   [
     "Restaurante Arrecifes",
     "Contenido · Gastronomía",
     "2.8x reservas desde redes",
-    "from-cyan-600 to-emerald-400",
+    "from-violet-700 to-fuchsia-500",
     "Contenido audiovisual que llevó la experiencia del restaurante a cada pantalla.",
   ],
   [
@@ -54,7 +54,7 @@ export default function PortafolioPage() {
           {projects.map(([name, category, result, color, description]) => (
             <article
               key={name}
-              className="group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white"
+              className="group border-line bg-surface overflow-hidden rounded-[1.75rem] border"
             >
               <div
                 className={cn(
@@ -75,7 +75,7 @@ export default function PortafolioPage() {
                     color,
                   )}
                 />
-                <div className="absolute top-6 right-6 flex size-11 items-center justify-center rounded-full bg-white text-slate-950">
+                <div className="bg-surface text-foreground absolute top-6 right-6 flex size-11 items-center justify-center rounded-full">
                   <ArrowUpRight size={18} />
                 </div>
                 <div className="absolute right-7 bottom-7 left-7 text-white">
@@ -86,11 +86,9 @@ export default function PortafolioPage() {
                 </div>
               </div>
               <div className="grid gap-5 p-7 sm:grid-cols-[1fr_auto] sm:items-end">
-                <p className="text-sm leading-6 text-slate-600">
-                  {description}
-                </p>
-                <div className="rounded-xl bg-slate-50 px-4 py-3">
-                  <p className="text-[0.6rem] font-bold text-slate-400 uppercase">
+                <p className="text-muted text-sm leading-6">{description}</p>
+                <div className="bg-surface rounded-xl px-4 py-3">
+                  <p className="text-muted text-[0.6rem] font-bold uppercase">
                     Resultado
                   </p>
                   <p className="mt-1 text-sm font-bold">{result}</p>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Logo } from "@/components/logo";
 import { cn } from "@/lib/utils";
 
@@ -22,16 +23,16 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3">
-      <nav className="container-site flex h-16 items-center justify-between rounded-2xl border border-white/10 bg-slate-950/90 px-5 shadow-2xl shadow-slate-950/20 backdrop-blur-xl">
-        <Logo inverse />
+      <nav className="container-site border-line bg-surface/95 flex h-20 items-center justify-between rounded-2xl border px-5 shadow-lg shadow-black/5 backdrop-blur-xl">
+        <Logo />
         <div className="hidden items-center gap-5 xl:flex">
           {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "text-xs font-semibold transition hover:text-white",
-                pathname === item.href ? "text-cyan-300" : "text-slate-300",
+                "hover:text-foreground text-xs font-semibold transition",
+                pathname === item.href ? "text-accent" : "text-muted",
               )}
             >
               {item.label}
@@ -40,22 +41,23 @@ export function SiteHeader() {
         </div>
         <Link
           href="/contacto"
-          className="hidden items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-bold text-slate-950 transition hover:bg-cyan-300 sm:flex"
+          className="button-primary hidden items-center gap-2 rounded-full px-4 py-2.5 text-xs font-bold sm:flex"
         >
           Solicitar cotización <ArrowUpRight size={14} />
         </Link>
+        <ThemeToggle />
         <button
           type="button"
           onClick={() => setOpen(!open)}
           aria-expanded={open}
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
-          className="flex size-10 items-center justify-center rounded-full border border-white/10 text-white xl:hidden"
+          className="border-line text-foreground flex size-10 items-center justify-center rounded-full border xl:hidden"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </nav>
       {open && (
-        <div className="container-site mt-2 rounded-2xl border border-white/10 bg-slate-950 p-3 shadow-2xl xl:hidden">
+        <div className="container-site border-line bg-surface mt-2 rounded-2xl border p-3 shadow-2xl xl:hidden">
           {navigation.map((item) => (
             <Link
               key={item.href}
@@ -64,8 +66,8 @@ export function SiteHeader() {
               className={cn(
                 "block rounded-xl px-4 py-3 text-sm font-medium",
                 pathname === item.href
-                  ? "bg-white/10 text-cyan-300"
-                  : "text-slate-200 hover:bg-white/5",
+                  ? "bg-accent-soft text-accent"
+                  : "text-muted hover:bg-surface",
               )}
             >
               {item.label}
@@ -74,7 +76,7 @@ export function SiteHeader() {
           <Link
             href="/contacto"
             onClick={() => setOpen(false)}
-            className="mt-2 block rounded-xl bg-blue-600 px-4 py-3 text-center text-sm font-bold text-white"
+            className="button-primary mt-2 block rounded-xl px-4 py-3 text-center text-sm font-bold"
           >
             Solicitar cotización
           </Link>

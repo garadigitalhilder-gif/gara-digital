@@ -14,7 +14,7 @@ type ContactFormData = {
 };
 
 const inputStyles =
-  "w-full rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-slate-950 transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 focus:outline-none";
+  "w-full rounded-xl border border-line bg-surface px-4 py-3.5 text-sm text-foreground transition placeholder:text-muted focus:border-accent focus:ring-4 focus:ring-accent/15 focus:outline-none";
 
 export function ContactForm() {
   const {
@@ -25,7 +25,7 @@ export function ContactForm() {
   } = useForm<ContactFormData>();
 
   async function onSubmit(data: ContactFormData) {
-  const message = `🚀 Nueva Solicitud de Cotización - Gara Digital
+    const message = `🚀 Nueva Solicitud de Cotización - Gara Digital
 
 👤 Nombre: ${data.name}
 🏢 Empresa: ${data.company}
@@ -36,35 +36,44 @@ export function ContactForm() {
 📝 Mensaje:
 ${data.message}`;
 
-  const whatsappUrl = `https://wa.me/50764103972?text=${encodeURIComponent(
-    message
-  )}`;
+    const whatsappUrl = `https://wa.me/50764103972?text=${encodeURIComponent(
+      message,
+    )}`;
 
-  toast.success("Redirigiendo a WhatsApp...");
+    toast.success("Redirigiendo a WhatsApp...");
 
-  window.open(whatsappUrl, "_blank");
+    window.open(whatsappUrl, "_blank");
 
-  reset();
-}
+    reset();
+  }
 
   return (
     <>
-      <Toaster position="top-right" richColors />
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: "var(--surface)",
+            color: "var(--foreground)",
+            borderColor: "var(--line)",
+          },
+        }}
+      />
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="rounded-[2rem] bg-white p-6 shadow-2xl shadow-slate-950/10 sm:p-8"
+        className="border-line bg-surface rounded-[2rem] border p-6 shadow-2xl shadow-slate-950/10 sm:p-8"
         noValidate
       >
         <div className="mb-7 flex items-center justify-between gap-4">
           <div>
-            <p className="text-xs font-bold tracking-[0.18em] text-blue-600 uppercase">
+            <p className="text-accent text-xs font-bold tracking-[0.18em] uppercase">
               Cuéntanos tu idea
             </p>
-            <h3 className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">
+            <h3 className="text-foreground mt-2 text-2xl font-semibold tracking-tight">
               Iniciemos una conversación
             </h3>
           </div>
-          <div className="hidden size-12 items-center justify-center rounded-full bg-blue-50 text-blue-600 sm:flex">
+          <div className="bg-accent-soft text-accent hidden size-12 items-center justify-center rounded-full sm:flex">
             <ArrowUpRight size={22} />
           </div>
         </div>
@@ -155,12 +164,12 @@ ${data.message}`;
         <button
           type="submit"
           disabled={isSubmitting}
-          className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-slate-950 px-5 py-4 text-sm font-semibold text-white transition hover:bg-blue-600 disabled:cursor-wait disabled:opacity-60"
+          className="button-primary mt-6 flex w-full items-center justify-center gap-2 rounded-xl px-5 py-4 text-sm font-semibold transition disabled:cursor-wait disabled:opacity-60"
         >
           {isSubmitting ? "Enviando..." : "Solicitar cotización"}
           {!isSubmitting && <ArrowUpRight size={17} />}
         </button>
-        <p className="mt-4 flex items-center gap-2 text-xs text-slate-500">
+        <p className="text-muted mt-4 flex items-center gap-2 text-xs">
           <CheckCircle2 size={14} className="text-emerald-500" />
           Respondemos en menos de 24 horas laborables.
         </p>
@@ -179,7 +188,7 @@ function Field({
   children: React.ReactNode;
 }) {
   return (
-    <label className="block text-sm font-medium text-slate-700">
+    <label className="text-foreground block text-sm font-medium">
       <span className="mb-2 block">{label}</span>
       {children}
       {error && (

@@ -63,30 +63,28 @@ export default function BlogPage() {
           {posts.map(([category, title, description, time], index) => (
             <article
               key={title}
-              className="group flex min-h-80 flex-col rounded-2xl border border-slate-200 p-6 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-950/5"
+              className="group border-line hover:border-accent/40 flex min-h-80 flex-col rounded-2xl border p-6 hover:shadow-xl hover:shadow-blue-950/5"
             >
               <div className="flex items-center justify-between">
-                <span className="rounded-full bg-blue-50 px-3 py-1.5 text-[0.65rem] font-bold text-blue-600 uppercase">
+                <span className="bg-accent-soft text-accent rounded-full px-3 py-1.5 text-[0.65rem] font-bold uppercase">
                   {category}
                 </span>
-                <span className="text-xs font-bold text-slate-300">
+                <span className="text-muted text-xs font-bold">
                   0{index + 1}
                 </span>
               </div>
               <h2 className="mt-10 text-2xl font-semibold tracking-tight">
                 {title}
               </h2>
-              <p className="mt-4 text-sm leading-6 text-slate-600">
-                {description}
-              </p>
+              <p className="text-muted mt-4 text-sm leading-6">{description}</p>
               <div className="mt-auto flex items-center justify-between pt-8">
-                <span className="flex items-center gap-2 text-xs text-slate-400">
+                <span className="text-muted flex items-center gap-2 text-xs">
                   <CalendarDays size={13} /> {time} de lectura
                 </span>
                 <Link
                   href="/contacto"
                   aria-label={`Consultar sobre ${title}`}
-                  className="flex size-9 items-center justify-center rounded-full bg-slate-950 text-white group-hover:bg-blue-600"
+                  className="bg-accent-soft text-accent group-hover:bg-accent-soft flex size-9 items-center justify-center rounded-full"
                 >
                   <ArrowUpRight size={15} />
                 </Link>

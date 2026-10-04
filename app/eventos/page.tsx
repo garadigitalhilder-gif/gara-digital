@@ -19,7 +19,7 @@ export default function EventosPage() {
         description="Creamos fotografía, video y contenido inmediato para que cada evento siga generando valor después de terminar."
         cta="Cotizar mi evento"
       />
-      <section className="bg-slate-950 py-24 text-white">
+      <section className="bg-surface text-foreground py-24">
         <div className="container-site grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
             [
@@ -57,13 +57,13 @@ export default function EventosPage() {
             return (
               <article
                 key={title as string}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6"
+                className="border-line bg-surface rounded-2xl border p-6"
               >
-                <ItemIcon className="text-cyan-300" />
+                <ItemIcon className="text-accent" />
                 <h2 className="mt-8 text-xl font-semibold">
                   {title as string}
                 </h2>
-                <p className="mt-3 text-sm leading-6 text-slate-300">
+                <p className="text-muted mt-3 text-sm leading-6">
                   {text as string}
                 </p>
               </article>
